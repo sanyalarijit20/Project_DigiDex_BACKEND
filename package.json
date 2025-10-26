@@ -1,0 +1,30 @@
+{
+  "name": "project_digidex_backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/sanyalarijit20/Project_DigiDex_BACKEND#readme",
+  "bugs": {
+    "url": "https://github.com/sanyalarijit20/Project_DigiDex_BACKEND/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanyalarijit20/Project_DigiDex_BACKEND.git"
+  },
+  "license": "ISC",
+  "author": "Arijit Sanyal",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.2",
+    "nodemon": "^3.1.10"
+  }
+}
