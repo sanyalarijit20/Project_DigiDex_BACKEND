@@ -15,6 +15,7 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/pokemon', require('./routes/api/pokemon'));
 app.use('/api/collection', require('./routes/api/collection'));
+app.use('/api/profile', require('./routes/api/profile'));
 
 
 app.listen(PORT, () => {

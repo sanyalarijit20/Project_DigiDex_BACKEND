@@ -25,7 +25,7 @@ exports.getPokemonByName = async (req, res) => {
     const formattedData = {
       id: mainData.id,
       name: mainData.name,
-      imageUrl: mainData.sprites.other.dream_world.front_default,
+      imageUrl: mainData.sprites.other['official-artwork'].front_default,
       info: {
         height: mainData.height,
         weight: mainData.weight,
