@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-// --- Register User Logic ---
+
 exports.registerUser = async (req, res) => {
   const { username, password } = req.body;
 
@@ -16,7 +16,7 @@ exports.registerUser = async (req, res) => {
     user = new User({
       username,
       password,
-      folders: [{ name: 'My First Collection', pokemons: [] }], // Give them a default folder!
+      folders: [{ name: 'My First Collection', pokemons: [] }], 
       badges: [],
     });
 
