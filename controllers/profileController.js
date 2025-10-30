@@ -83,3 +83,52 @@ exports.addBadge = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
+
+// 1. DELETE POKEMON FROM FOLDER
+exports.deletePokemonFromFolder = async (req, res) => {
+  const { folderId, pokemonName } = req.params;
+  try {
+    const user = await User.findById(req.user.id);
+    const folder = user.folders.id(folderId);
+    if (!folder) {
+      return res.status(404).json({ message: 'Folder not found' });
+    }
+    
+    // Use $pull to remove the item from the array
+    folder.pokemons.pull(pokemonName);
+    await user.save();
+    res.json(user); // Send back the updated user
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server error');
+  }
+};
+
+// 2. DELETE BADGE
+exports.deleteBadge = async (req, res) => {
+  const { badgeId } = req.params;
+  try {
+    const user = await User.findById(req.user.id);
+    
+    // Use $pull to remove the sub-document by its _id
+    user.badges.pull(badgeId);
+    await user.save();
+    res.json(user); // Send back the updated user
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server error');
+  }
+};
+
+// 3. DELETE USER ACCOUNT
+exports.deleteUser = async (req, res) => {
+  try {
+    // Find and delete the user document
+    await User.findByIdAndDelete(req.user.id);
+    res.json({ message: 'User account deleted successfully.' });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server error');
+  }
+};
+
